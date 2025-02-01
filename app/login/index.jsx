@@ -58,7 +58,7 @@ export default function LogininScreen(){
       }}>Note: By Clicking Continue button,you will agree to our terms and conditions.</Text>
     </View>
     </View>
-
+ 
     
   )
 }
