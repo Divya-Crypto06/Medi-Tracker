@@ -10,6 +10,12 @@ export default SignUp = () => {
             padding:25
         }}>
           <Text style={styles.textHeader}>Create New Account</Text>
+          <View style={{
+          marginTop:25
+        }}>
+          <Text>Full Name</Text>
+          <TextInput placeholder='Full Name' style={styles.textInput}/>
+        </View>
         <View style={{
           marginTop:25
         }}>
@@ -29,15 +35,15 @@ export default SignUp = () => {
             fontsize:17,
             color:'white',
             textAlign:'center'
-          }}>Login</Text>
+          }}>Create Account</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonCreate}
-        onPress={()=>router.push('login/signUp')}>
+        onPress={()=>router.push('login/signIn')}>
           <Text style={{
             fontsize:17,
             color:Colors.PRIMARY,
             textAlign:'center'
-          }}>Create Account</Text>
+          }}>Already account? Sign In</Text>
         </TouchableOpacity>
         </View>
   )
