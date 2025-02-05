@@ -4,16 +4,16 @@ import Colors from '../../constant/Colors'
 import { useRouter } from 'expo-router'
 import {auth,getAuth} from './../../config/FirebaseConfig'
 import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import { Platform, ToastAndroid, Alert } from 'react-native';
 
 export default SignUp = () => {
   const router=useRouter();
   const [email,setEmail] = useState();
   const [password,setPassword]= useState();
-
-  
   const OnCreateAccount=()=>{
-    if (!email || !password) {
+    if (!email || !password||!userName) {
+      const [userName,setuserName]=useState();
       if (Platform.OS === 'android') {
         ToastAndroid.show('Please fill all details', ToastAndroid.BOTTOM);
       } else {
@@ -22,10 +22,12 @@ export default SignUp = () => {
       return ;
     }
       createUserWithEmailAndPassword(auth,email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           // Signed up 
           const user = userCredential.user;
-          console.log(user);
+          await updateProfile(user,{
+            displayName:userName
+          })
           router.push('(tabs)')
           // ...
         })
@@ -52,7 +54,13 @@ export default SignUp = () => {
           marginTop:25
         }}>
           <Text>Full Name</Text>
+
           <TextInput placeholder='Full Name' style={styles.textInput}/>
+
+          <TextInput placeholder='Full Name' 
+          onChangeText={(value)=>setuserName(value)}
+          style={styles.textInput}/>
+
         </View>
         <View style={{
           marginTop:25
@@ -127,4 +135,5 @@ const styles=StyleSheet.create({
       borderWidth:1,
       borderColor:Colors.PRIMARY
     }
+
 })
