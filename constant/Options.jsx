@@ -25,3 +25,14 @@ export const TypeList=[
 
     }
 ]
+
+export const WhenToTake=[
+    'Morning',
+    'Before Lunch',
+    'After Lunch',
+    'Afternoon',
+    'Evening',
+    'Before Dinner',
+    'After Dinner',
+    'Before Sleeping'
+]
