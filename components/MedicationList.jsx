@@ -3,12 +3,14 @@ import React from 'react'
 import {GetDateRangeToDisplay} from './../service/ConvertDateTime'
 import colors from '../Constant/colors';
 import { PreventRemoveContext } from '@react-navigation/native';
+import { router } from 'expo-router';
 
 export default function MedicationList(){
     const [medList,setMedList]=useState();
     const [dateRange,setDateRange]=useState();
     const [selectedDate,setSelectedDate]=useState(moment().format('MM/DD/YYYY'));
     const [loading,setLoading]=useState(false);
+    const router=userRouter();
     useEffect(()=>{
         GetDateRangeList();
         GetMedicationList(selectedDate);
@@ -71,7 +73,9 @@ export default function MedicationList(){
       onRefresh={()=>GetMedicationList(selectedDate)}
       refreshing={loading}
       renderItem={({item,index})=>(
-        <TouchableOpacity >
+        <TouchableOpacity onPress={()=>router.push({
+          
+        })}>
         <MedicationCardItem medicine={item}/>
         </TouchableOpacity>
       )}
@@ -80,6 +84,7 @@ export default function MedicationList(){
     </View>
   )
 }
+
 const styles=StyleSheet.create({
     dateGroup:{
         padding:15,
