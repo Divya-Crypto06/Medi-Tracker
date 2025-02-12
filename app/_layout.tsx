@@ -8,18 +8,13 @@ import { auth } from '../../config/FirebaseConfig';
 export default function TabLayout() {
 
   const router=useRouter();
-  //if user login or not
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
       const uid = user.uid;
       console.log(uid)
       // ...
     } else {
       router?.push('/login')
-      // User is signed out
-      // ...
     }
   });
   return (
