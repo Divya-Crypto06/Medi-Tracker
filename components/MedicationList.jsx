@@ -74,7 +74,11 @@ export default function MedicationList(){
       refreshing={loading}
       renderItem={({item,index})=>(
         <TouchableOpacity onPress={()=>router.push({
-          
+          pathname:'/action-modal',
+          params:{
+            ...item,
+            selectedDate:selectedDate
+          }
         })}>
         <MedicationCardItem medicine={item}/>
         </TouchableOpacity>
