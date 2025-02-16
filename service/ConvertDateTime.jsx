@@ -1,7 +1,6 @@
 export const FormatDate=(timestamp)=>{
     return new Date(timestamp)
 }
-
 export const formatDateForText=(date)=>{
     return moment(date).format('ll')
 
