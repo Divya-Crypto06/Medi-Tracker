@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Tabs, useRouter } from 'expo-router'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
