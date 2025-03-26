@@ -2,7 +2,6 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import ConstantString from '../constant/ConstantString'
 import { useRouter } from 'expo-router'
-
 export default function EmptyState(){
     const router=useRouter();
   return (
