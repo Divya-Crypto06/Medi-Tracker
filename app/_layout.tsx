@@ -3,9 +3,7 @@ import { Tabs, useRouter } from 'expo-router'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../config/FirebaseConfig';
-
 export default function TabLayout() {
-
   const router=useRouter();
   onAuthStateChanged(auth, (user) => {
     if (user) {
