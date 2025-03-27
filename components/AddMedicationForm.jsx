@@ -9,7 +9,6 @@ import { FormatDate, formatDateForText, formatTime, getDateRange } from '../serv
 import { db } from '../config/FirebaseConfig';
 import { useRouter } from 'expo-router';
 
-
 export default function AddMedicationForm(){
   const [formData,setFormData]=useState();
   const [showStartDate,setShowStartDate]=useState(false);
