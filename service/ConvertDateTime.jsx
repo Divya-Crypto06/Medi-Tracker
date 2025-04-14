@@ -3,7 +3,6 @@ export const FormatDate=(timestamp)=>{
 }
 export const formatDateForText=(date)=>{
     return moment(date).format('ll')
-
 }
 
 export const formatTime=(timestamp)=>{
